@@ -22,6 +22,8 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
+      x: 50,
+      y: 45,
       txt: '',
       size: 40,
       align: 'left',
@@ -51,4 +53,24 @@ function changeFontSize(isPlus) {
   } else {
     gMeme.lines[gMeme.selectedLineIdx].size -= 10;
   }
+}
+
+function addLine(txt) {
+  if (gMeme.lines.length === 1) {
+    var y = gElCanvas.height - 40;
+    var x = 50;
+  } else if (gMeme.lines.length === 2) {
+    var y = gElCanvas.height - 250;
+    var x = 50;
+  }
+  gMeme.lines.push({
+    x: x,
+    y: y,
+    txt: txt,
+    size: 40,
+    align: 'left',
+    color: 'red',
+  });
+
+  gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }

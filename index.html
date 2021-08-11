@@ -46,11 +46,17 @@
           <canvas class="canvas"></canvas>
         </div>
         <div class="meme-tools">
-          <input oninput="renderMeme(this.value)" type="text" />
+          <input
+            class="meme-text"
+            oninput="renderMeme(this.value)"
+            type="text"
+          />
           <div class="actions">
             <div class="buttons">
               <button><img src="icons/updown.png" alt="" /></button>
-              <button><img src="icons/addline.png" alt="" /></button>
+              <button onclick="onAddLine()">
+                <img src="icons/addline.png" alt="" />
+              </button>
               <button><img src="icons/trash.png" alt="" /></button>
             </div>
             <div class="positioning-tools">

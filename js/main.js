@@ -21,7 +21,6 @@ function renderMeme(txt) {
   const meme = getMeme();
   const memeId = meme.selectedImgId;
   const memeTxt = meme.lines[meme.selectedLineIdx].txt;
-  console.log(memeTxt);
 
   var img = new Image();
   img.src = `imgs/${memeId}.jpg`;
@@ -34,15 +33,18 @@ function renderMeme(txt) {
 function renderTxt(txt) {
   const meme = getMeme();
   const memeLineIdx = meme.selectedLineIdx;
-  const fontSize = meme.lines[memeLineIdx].size;
+  const lines = meme.lines;
+
   let newTxt = meme.lines[memeLineIdx].txt;
 
   if (!txt) txt = newTxt;
   updateMemeTxt(txt);
 
-  gCtx.font = `${fontSize}px IMPACT`;
-  gCtx.fillStyle = 'white';
-  gCtx.fillText(txt, 20, gElCanvas.height - 480);
+  lines.forEach((line) => {
+    gCtx.font = `${line.size}px IMPACT`;
+    gCtx.fillStyle = 'white';
+    gCtx.fillText(line.txt, line.x, line.y);
+  });
 }
 
 function onUpdateMeme(id) {
@@ -71,5 +73,11 @@ function renderImages() {
 
 function onFontChange(isPlus) {
   changeFontSize(isPlus);
+  renderMeme();
+}
+
+function onAddLine() {
+  let txt = (document.querySelector('.meme-text').value = '');
+  addLine(txt);
   renderMeme();
 }
