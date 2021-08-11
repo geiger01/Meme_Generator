@@ -77,7 +77,6 @@ body {
 
 .main-content .canvas {
   border-radius: 30px;
-  box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
-  background-color: #ebeef3;
-  opacity: 0.11;
+  /* box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff; */
+  /* background-color: #3b3b3b; */
 }
