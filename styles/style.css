@@ -37,6 +37,8 @@ body {
   transition: 0.3s;
 }
 
+/* Meme Section*/
+
 /* Layout */
 
 .main-layout {
@@ -79,4 +81,77 @@ body {
   border-radius: 30px;
   /* box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff; */
   /* background-color: #3b3b3b; */
+}
+
+/* Gallery Section*/
+
+.gallery-container {
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #383b42;
+  /* height: 20rem; */
+}
+
+/* Gallery Nav */
+.gallery-container .gallery-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.gallery-container .nav-filter-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background-color: #87898d;
+  color: #fefefe;
+  box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 50px;
+  width: 33.5rem;
+  font-size: 1.5rem;
+}
+
+.gallery-container input {
+  width: 33.5rem;
+  border-radius: 29px;
+  background-color: #22252c;
+  border: none;
+  outline: none;
+}
+
+.gallery-container .gallery-nav button {
+  cursor: pointer;
+  width: 6.625rem;
+  height: 2.25rem;
+  align-self: center;
+  color: #fefefe;
+  border: none;
+  box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  background-color: #fefefe;
+  background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+  font-size: 1rem;
+}
+
+/* Photos */
+
+.gallery-container .photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.9rem;
+  margin-top: 2.75rem;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* background-color: #fff; */
+}
+
+.gallery-container .img-item {
+  cursor: pointer;
+  border-radius: 12px;
+  width: 12.5rem;
+  height: 10.8125rem;
+  object-fit: cover;
+  box-shadow: 1px 7px 12px 4px rgb(0 0 0 / 30%);
 }

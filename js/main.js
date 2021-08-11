@@ -41,3 +41,8 @@ function renderTxt(txt) {
   gCtx.fillStyle = 'white';
   gCtx.fillText(txt, 20, gElCanvas.height - 480);
 }
+
+function onUpdateMeme(id) {
+  updateMeme(id);
+  renderMeme();
+}
