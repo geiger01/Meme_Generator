@@ -11,8 +11,9 @@ function onInit() {
 }
 
 function resizeCanvas() {
-  gElCanvas.width = 476;
-  gElCanvas.height = 546;
+  const elContainer = document.querySelector('.meme');
+  gElCanvas.width = elContainer.offsetWidth;
+  gElCanvas.height = elContainer.offsetHeight;
 }
 
 function renderMeme() {
@@ -29,9 +30,13 @@ function renderMeme() {
 }
 
 function renderTxt(txt) {
+  updateMemeTxt(txt);
+
+  const meme = getMeme();
+  const memeLineIdx = meme.selectedLineIdx;
+  let newTxt = meme.lines[memeLineIdx].txt;
+
   gCtx.font = '50px IMPACT';
   gCtx.fillStyle = 'white';
-  gCtx.fillText(txt, 20, gElCanvas.height - 480);
-
-  updateMemeTxt(txt);
+  gCtx.fillText(newTxt, 20, gElCanvas.height - 480);
 }
