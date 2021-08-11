@@ -20,7 +20,6 @@ function resizeCanvas() {
 function renderMeme(txt) {
   const meme = getMeme();
   const memeId = meme.selectedImgId;
-  console.log(meme.selectedLineIdx);
   const memeTxt = meme.lines[meme.selectedLineIdx].txt;
 
   var img = new Image();
@@ -90,5 +89,10 @@ function onChangeLine() {
 
 function onDeleteLine() {
   deleteLine();
+  renderMeme();
+}
+
+function onTextAlign(pos) {
+  alignTextPos(pos);
   renderMeme();
 }
