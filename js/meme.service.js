@@ -56,6 +56,7 @@ function changeFontSize(isPlus) {
 }
 
 function addLine(txt) {
+  if (gMeme.lines.length === 3) return;
   if (gMeme.lines.length === 1) {
     var y = gElCanvas.height - 40;
     var x = 50;
@@ -73,4 +74,11 @@ function addLine(txt) {
   });
 
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function changeLine() {
+  gMeme.selectedLineIdx--;
+  if (gMeme.selectedLineIdx === -1) {
+    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+  }
 }

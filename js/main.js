@@ -81,3 +81,8 @@ function onAddLine() {
   addLine(txt);
   renderMeme();
 }
+
+function onChangeLine() {
+  changeLine();
+  renderMeme();
+}
