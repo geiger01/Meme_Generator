@@ -16,7 +16,7 @@ function resizeCanvas() {
   gElCanvas.height = elContainer.offsetHeight;
 }
 
-function renderMeme() {
+function renderMeme(txt) {
   const meme = getMeme();
   const memeId = meme.selectedImgId;
   const memeTxt = meme.lines[meme.selectedLineIdx].txt;
@@ -25,18 +25,19 @@ function renderMeme() {
   img.src = `imgs/${memeId}.jpg`;
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-    renderTxt(memeTxt);
+    renderTxt(txt);
   };
 }
 
 function renderTxt(txt) {
+  if (!txt) return;
   updateMemeTxt(txt);
 
   const meme = getMeme();
   const memeLineIdx = meme.selectedLineIdx;
-  let newTxt = meme.lines[memeLineIdx].txt;
+  txt = meme.lines[memeLineIdx].txt;
 
   gCtx.font = '50px IMPACT';
   gCtx.fillStyle = 'white';
-  gCtx.fillText(newTxt, 20, gElCanvas.height - 480);
+  gCtx.fillText(txt, 20, gElCanvas.height - 480);
 }
