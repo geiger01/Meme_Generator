@@ -15,6 +15,10 @@ var gImgs = [
   { id: 12, url: 'imgs/12.jpg', keywords: ['political'] },
   { id: 13, url: 'imgs/13.jpg', keywords: ['political'] },
   { id: 14, url: 'imgs/14.jpg', keywords: ['political'] },
+  { id: 15, url: 'imgs/15.jpg', keywords: ['political'] },
+  { id: 16, url: 'imgs/16.jpg', keywords: ['political'] },
+  { id: 17, url: 'imgs/17.jpg', keywords: ['political'] },
+  { id: 18, url: 'imgs/18.jpg', keywords: ['political'] },
 ];
 
 var gMeme = {
@@ -80,5 +84,17 @@ function changeLine() {
   gMeme.selectedLineIdx--;
   if (gMeme.selectedLineIdx === -1) {
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
+  }
+}
+
+function deleteLine() {
+  if (gMeme.selectedLineIdx > 0) {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    gMeme.selectedLineIdx--;
+  } else if (!gMeme.selectedLineIdx) {
+    gMeme.selectedLineIdx = 0;
+    gMeme.lines[0].txt = '';
+  } else {
+    return;
   }
 }
