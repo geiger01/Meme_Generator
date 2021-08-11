@@ -126,7 +126,7 @@ body {
   padding: 1.5rem;
 }
 
-.main-content .meme-tools input {
+.main-content .meme-tools .meme-text {
   font-family: Poppins-Medium, sans-serif;
   padding-inline-start: 1.8rem;
   color: #3d3d3d;
@@ -175,7 +175,19 @@ body {
   gap: 2.187rem;
 }
 
+.main-content .color-btn {
+  cursor: pointer;
+  position: relative;
+}
+.main-content #color-change {
+  position: absolute;
+  visibility: hidden;
+}
+
 .lower-tools select {
+  font-size: 1.5rem;
+  padding-inline-start: 60px;
+
   outline: none;
   border: none;
   width: 14.75rem;
@@ -194,16 +206,11 @@ body {
 
   width: 30.437rem;
   height: 34.125rem;
-  /* box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff; */
   border-radius: 30px;
-  /* background-color: #ebeef3; */
-  /* opacity: 0.11; */
 }
 
 .main-content .canvas {
   border-radius: 30px;
-  /* box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff; */
-  /* background-color: #3b3b3b; */
 }
 
 /* Gallery Section*/

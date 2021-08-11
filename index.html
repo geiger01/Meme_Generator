@@ -82,11 +82,22 @@
                 </button>
               </div>
               <div class="lower-tools">
-                <select name="" id=""></select>
+                <select onchange="onChangeFont(this.value)" name="font" id="">
+                  <option value="IMPACT">IMPACT</option>
+                  <option value="Arial">Arial</option>
+                </select>
                 <button><img src="icons/s.png" alt="" /></button>
-                <button class="color-btn">
-                  <img src="icons/color.png" alt="" />
-                </button>
+                <label for="color-change">
+                  <div class="color-btn">
+                    <img src="icons/color.png" alt="" />
+                  </div>
+                </label>
+                <input
+                  oninput="onChangeTxtColor(this.value)"
+                  id="color-change"
+                  class="color-change"
+                  type="color"
+                />
               </div>
             </div>
             <div class="stickers"></div>

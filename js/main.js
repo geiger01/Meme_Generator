@@ -41,8 +41,8 @@ function renderTxt(txt) {
   updateMemeTxt(txt);
 
   lines.forEach((line) => {
-    gCtx.font = `${line.size}px IMPACT`;
-    gCtx.fillStyle = 'white';
+    gCtx.font = `${line.size}px ${line.font}`;
+    gCtx.fillStyle = line.color;
     gCtx.fillText(line.txt, line.x, line.y);
   });
 }
@@ -94,5 +94,15 @@ function onDeleteLine() {
 
 function onTextAlign(pos) {
   alignTextPos(pos);
+  renderMeme();
+}
+
+function onChangeFont(font) {
+  changeFontStyle(font);
+  renderMeme();
+}
+
+function onChangeTxtColor(color) {
+  changeTxtColor(color);
   renderMeme();
 }

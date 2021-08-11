@@ -31,7 +31,8 @@ var gMeme = {
       txt: '',
       size: 40,
       align: 'left',
-      color: 'red',
+      color: 'white',
+      font: 'IMPACT',
     },
   ],
 };
@@ -62,19 +63,21 @@ function changeFontSize(isPlus) {
 function addLine(txt) {
   if (gMeme.lines.length === 3) return;
   if (gMeme.lines.length === 1) {
-    var y = 250;
-    var x = 50;
-  } else if (gMeme.lines.length === 2) {
     var y = 450;
     var x = 50;
+  } else if (gMeme.lines.length === 2) {
+    var y = 250;
+    var x = 50;
   }
+
   gMeme.lines.push({
     x: x,
     y: y,
     txt: txt,
     size: 40,
     align: 'left',
-    color: 'red',
+    color: 'white',
+    font: 'IMPACT',
   });
 
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
@@ -112,4 +115,12 @@ function alignTextPos(pos) {
   if (pos === 'right') {
     gMeme.lines[gMeme.selectedLineIdx].x = 300;
   }
+}
+
+function changeFontStyle(font) {
+  gMeme.lines[gMeme.selectedLineIdx].font = font;
+}
+
+function changeTxtColor(color) {
+  gMeme.lines[gMeme.selectedLineIdx].color = color;
 }
