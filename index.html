@@ -11,9 +11,11 @@
     <header class="main-header main-layout">
       <nav class="main-nav">
         <ul class="nav-content">
-          <li class="logo"><a href="">Logo</a></li>
-          <li><a href="">Gallery</a></li>
-          <li><a href="">About</a></li>
+          <li class="logo"><a href="">MeMaker</a></li>
+          <div class="links">
+            <li><a href="">Gallery</a></li>
+            <li><a href="">About</a></li>
+          </div>
         </ul>
       </nav>
     </header>
@@ -38,7 +40,7 @@
       </div>
     </section>
 
-    <section class="meme-section">
+    <section class="meme-section hide">
       <main class="main-content main-layout">
         <div class="meme">
           <canvas class="canvas"></canvas>
@@ -46,8 +48,29 @@
         <div class="meme-tools">
           <input oninput="renderMeme(this.value)" type="text" />
           <div class="actions">
-            <div class="buttons">Button buttonb btuton</div>
-            <div class="positioning"></div>
+            <div class="buttons">
+              <button><img src="icons/updown.png" alt="" /></button>
+              <button><img src="icons/addline.png" alt="" /></button>
+              <button><img src="icons/trash.png" alt="" /></button>
+            </div>
+            <div class="positioning-tools">
+              <div class="upper-tools">
+                <button onclick="onFontChange(true)">
+                  <img src="icons/plus.png" alt="" />
+                </button>
+                <button onclick="onFontChange(false)">
+                  <img src="icons/minus.png" alt="" />
+                </button>
+                <button><img src="icons/alignleft.png" alt="" /></button>
+                <button><img src="icons/aligncenter.png" alt="" /></button>
+                <button><img src="icons/alignright.png" alt="" /></button>
+              </div>
+              <div class="lower-tools">
+                <select name="" id=""></select>
+                <button><img src="icons/s.png" alt="" /></button>
+                <button><img src="icons/color.png" alt="" /></button>
+              </div>
+            </div>
             <div class="stickers"></div>
             <div class="uploads"></div>
           </div>

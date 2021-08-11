@@ -23,7 +23,7 @@ var gMeme = {
   lines: [
     {
       txt: '',
-      size: 20,
+      size: 40,
       align: 'left',
       color: 'red',
     },
@@ -43,4 +43,12 @@ function updateMemeTxt(txt) {
 
 function updateMeme(id) {
   gMeme.selectedImgId = id;
+}
+
+function changeFontSize(isPlus) {
+  if (isPlus) {
+    gMeme.lines[gMeme.selectedLineIdx].size += 10;
+  } else {
+    gMeme.lines[gMeme.selectedLineIdx].size -= 10;
+  }
 }

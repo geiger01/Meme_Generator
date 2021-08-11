@@ -21,6 +21,7 @@ function renderMeme(txt) {
   const meme = getMeme();
   const memeId = meme.selectedImgId;
   const memeTxt = meme.lines[meme.selectedLineIdx].txt;
+  console.log(memeTxt);
 
   var img = new Image();
   img.src = `imgs/${memeId}.jpg`;
@@ -31,21 +32,22 @@ function renderMeme(txt) {
 }
 
 function renderTxt(txt) {
-  if (!txt) return;
-  updateMemeTxt(txt);
-
   const meme = getMeme();
   const memeLineIdx = meme.selectedLineIdx;
-  txt = meme.lines[memeLineIdx].txt;
+  const fontSize = meme.lines[memeLineIdx].size;
+  let newTxt = meme.lines[memeLineIdx].txt;
 
-  gCtx.font = '50px IMPACT';
+  if (!txt) txt = newTxt;
+  updateMemeTxt(txt);
+
+  gCtx.font = `${fontSize}px IMPACT`;
   gCtx.fillStyle = 'white';
   gCtx.fillText(txt, 20, gElCanvas.height - 480);
 }
 
 function onUpdateMeme(id) {
-  //   document.querySelector('.meme-gallery').hidden = true;
-  //   document.querySelector('.meme-section').hidden = false;
+  document.querySelector('.meme-gallery').hidden = true;
+  document.querySelector('.meme-section').classList.remove('hide');
   updateMeme(id);
   renderMeme();
 }
@@ -65,4 +67,9 @@ function renderImages() {
   });
 
   document.querySelector('.photos').innerHTML = strHTML;
+}
+
+function onFontChange(isPlus) {
+  changeFontSize(isPlus);
+  renderMeme();
 }
