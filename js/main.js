@@ -8,6 +8,7 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d');
   resizeCanvas();
   renderMeme();
+  renderImages();
 }
 
 function resizeCanvas() {
@@ -43,6 +44,25 @@ function renderTxt(txt) {
 }
 
 function onUpdateMeme(id) {
+  //   document.querySelector('.meme-gallery').hidden = true;
+  //   document.querySelector('.meme-section').hidden = false;
   updateMeme(id);
   renderMeme();
+}
+
+function renderImages() {
+  const images = getImgs();
+  let strHTML = '';
+  images.map((image, idx) => {
+    return (strHTML += `
+        <img
+            onclick="onUpdateMeme(${images[idx].id})"
+            class="img-item"
+            src="imgs/${idx + 1}.jpg"
+            alt=""
+          />
+    `);
+  });
+
+  document.querySelector('.photos').innerHTML = strHTML;
 }
