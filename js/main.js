@@ -196,3 +196,8 @@ function onFilter(elFilterBtn) {
   getImgsForDisplay(filterTxt);
   renderImages(filterTxt);
 }
+
+function onSearch(txt) {
+  getImgsForDisplay(txt);
+  renderImages(txt);
+}

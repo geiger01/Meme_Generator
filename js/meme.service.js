@@ -145,6 +145,8 @@ function moveText(posX, posY) {
 }
 
 function getImgsForDisplay(filter = 'All') {
+  filter = filter.charAt(0).toUpperCase() + filter.slice(1);
+  if (!filter) filter = 'All';
   var filteredImgs = [];
   for (let i = 0; i < gImgs.length; i++) {
     for (let j = 0; j < gImgs.length; j++) {

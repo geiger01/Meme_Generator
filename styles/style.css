@@ -320,6 +320,7 @@ body {
 }
 
 .search-icon {
+  cursor: pointer;
   position: absolute;
   right: 20px;
   top: 7px;
