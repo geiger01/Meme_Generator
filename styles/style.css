@@ -416,6 +416,10 @@ body {
     display: flex;
     gap: 5px;
   }
+
+  .main-header {
+    padding-inline-end: 1rem;
+  }
 }
 
 @media screen and (max-width: 988px) {
@@ -427,5 +431,31 @@ body {
   .main-content .meme {
     width: 28.812rem;
     height: 31.125rem;
+  }
+
+  .main-header {
+    border-radius: 0;
+    padding-inline-start: 1rem;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .main-layout {
+    width: 530px;
+  }
+
+  .gallery-container .photos {
+    height: 80vh;
+  }
+
+  .gallery-container .img-item {
+    width: 11rem;
+  }
+
+  .main-header .logo {
+    display: none;
+  }
+  .main-header .nav-content {
+    padding-inline-start: 4rem;
   }
 }
