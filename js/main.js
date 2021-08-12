@@ -138,6 +138,9 @@ function addTouchListeners() {
   gElCanvas.addEventListener('touchmove', onTouchMove);
   gElCanvas.addEventListener('touchstart', onTouchDown);
   gElCanvas.addEventListener('touchend', onTouchUp);
+  document
+    .querySelector('.save-btn')
+    .addEventListener('click', copyToClipBoard); //creates popup
 }
 
 function onMouseDown(ev) {
@@ -222,4 +225,12 @@ function renderUserMemes() {
   });
 
   document.querySelector('.photos').innerHTML = strHTML;
+}
+
+function copyToClipBoard() {
+  document.querySelector('.copy-container').style.opacity = 1;
+
+  setTimeout(() => {
+    document.querySelector('.copy-container').style.opacity = 0;
+  }, 1000);
 }
