@@ -44,6 +44,7 @@
       <main class="main-content main-layout">
         <div class="meme">
           <canvas class="canvas"></canvas>
+          <img class="wow-bgc" src="/imgs/wow.png" alt="" />
         </div>
         <div class="meme-tools">
           <input
@@ -86,7 +87,9 @@
                   <option value="IMPACT">IMPACT</option>
                   <option value="Arial">Arial</option>
                 </select>
-                <button><img src="icons/s.png" alt="" /></button>
+                <button onclick="onToggleStroke()">
+                  <img src="icons/s.png" alt="" />
+                </button>
                 <label for="color-change">
                   <div class="color-btn">
                     <img src="icons/color.png" alt="" />

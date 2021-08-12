@@ -108,10 +108,20 @@ body {
 /* Main-Content */
 
 .main-content {
+  position: relative;
+  overflow-y: hidden;
+
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 5.25rem;
+}
+
+.main-content .wow-bgc {
+  z-index: -1;
+  position: absolute;
+  width: 55.875rem;
+  height: 55.875rem;
 }
 
 .main-content .meme-tools {

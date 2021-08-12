@@ -33,6 +33,7 @@ var gMeme = {
       align: 'left',
       color: 'white',
       font: 'IMPACT',
+      isStroke: true,
     },
   ],
 };
@@ -78,6 +79,7 @@ function addLine(txt) {
     align: 'left',
     color: 'white',
     font: 'IMPACT',
+    isStroke: true,
   });
 
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
@@ -123,4 +125,10 @@ function changeFontStyle(font) {
 
 function changeTxtColor(color) {
   gMeme.lines[gMeme.selectedLineIdx].color = color;
+}
+
+function toggleStroke() {
+  let isStroke = gMeme.lines[gMeme.selectedLineIdx].isStroke;
+  isStroke = !isStroke ? true : false;
+  gMeme.lines[gMeme.selectedLineIdx].isStroke = isStroke;
 }

@@ -44,6 +44,11 @@ function renderTxt(txt) {
     gCtx.font = `${line.size}px ${line.font}`;
     gCtx.fillStyle = line.color;
     gCtx.fillText(line.txt, line.x, line.y);
+
+    if (line.isStroke) {
+      gCtx.lineWidth = 2;
+      gCtx.strokeText(line.txt, line.x, line.y);
+    } else return;
   });
 }
 
@@ -104,5 +109,10 @@ function onChangeFont(font) {
 
 function onChangeTxtColor(color) {
   changeTxtColor(color);
+  renderMeme();
+}
+
+function onToggleStroke() {
+  toggleStroke();
   renderMeme();
 }
