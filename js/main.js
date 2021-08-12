@@ -3,12 +3,17 @@
 let gElCanvas;
 let gCtx;
 
+let gIsMouseDown = false;
+let gIsTouchDown = false;
+
 function onInit() {
   gElCanvas = document.querySelector('.canvas');
   gCtx = gElCanvas.getContext('2d');
   resizeCanvas();
   renderMeme();
   renderImages();
+  addMouseListeners();
+  addTouchListeners();
 }
 
 function resizeCanvas() {
@@ -44,7 +49,6 @@ function renderTxt(txt) {
     gCtx.font = `${line.size}px ${line.font}`;
     gCtx.fillStyle = line.color;
     gCtx.fillText(line.txt, line.x, line.y);
-
     if (line.isStroke) {
       gCtx.lineWidth = 2;
       gCtx.strokeText(line.txt, line.x, line.y);
@@ -122,4 +126,54 @@ function downloadCanvas(elLink) {
   const data = gElCanvas.toDataURL('image/jpg');
   elLink.href = data;
   elLink.download = 'Picture';
+}
+
+function addMouseListeners() {
+  gElCanvas.addEventListener('mousemove', onMouseMove);
+  gElCanvas.addEventListener('mousedown', onMouseDown);
+  gElCanvas.addEventListener('mouseup', onMouseUp);
+}
+function addTouchListeners() {
+  gElCanvas.addEventListener('touchmove', onTouchMove);
+  gElCanvas.addEventListener('touchstart', ontouchDown);
+  gElCanvas.addEventListener('touchend', onTouchUp);
+}
+
+function onMouseDown(ev) {
+  gIsMouseDown = true;
+}
+
+function onMouseUp(ev) {
+  gIsMouseDown = false;
+}
+
+function onMouseMove(ev) {
+  if (gIsMouseDown) {
+    let posX = ev.offsetX;
+    let posY = ev.offsetY;
+    moveText(posX, posY);
+    renderMeme();
+  } else return;
+}
+function ontouchDown(ev) {
+  ev.preventDefault();
+  gIsTouchDown = true;
+}
+
+function onTouchUp(ev) {
+  ev.preventDefault();
+  gIsTouchDown = false;
+}
+
+function onTouchMove(ev) {
+  ev.preventDefault();
+  var { x, y, width, height } = ev.target.getBoundingClientRect();
+  var offsetX = ((ev.touches[0].clientX - x) / width) * ev.target.offsetWidth;
+  var offsetY = ((ev.touches[0].clientY - y) / height) * ev.target.offsetHeight;
+  if (gIsTouchDown) {
+    let posX = offsetX;
+    let posY = offsetY;
+    moveText(posX, posY);
+    renderMeme();
+  } else return;
 }

@@ -62,11 +62,13 @@ function changeFontSize(isPlus) {
 }
 
 function addLine(txt) {
-  if (gMeme.lines.length === 3) return;
   if (gMeme.lines.length === 1) {
     var y = 450;
     var x = 50;
   } else if (gMeme.lines.length === 2) {
+    var y = 250;
+    var x = 50;
+  } else {
     var y = 250;
     var x = 50;
   }
@@ -135,4 +137,9 @@ function toggleStroke() {
 
 function getTxt() {
   return gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+function moveText(posX, posY) {
+  gMeme.lines[gMeme.selectedLineIdx].x = posX;
+  gMeme.lines[gMeme.selectedLineIdx].y = posY;
 }
