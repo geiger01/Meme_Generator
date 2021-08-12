@@ -63,15 +63,15 @@ function onUpdateMeme(id) {
   renderMeme();
 }
 
-function renderImages() {
-  const images = getImgs();
+function renderImages(filterTxt = 'All') {
+  const images = getImgsForDisplay(filterTxt);
   let strHTML = '';
   images.map((image, idx) => {
     return (strHTML += `
         <img
             onclick="onUpdateMeme(${images[idx].id})"
             class="img-item"
-            src="imgs/${idx + 1}.jpg"
+            src="imgs/${images[idx].id}.jpg"
             alt=""
           />
     `);
@@ -189,4 +189,10 @@ function getTextWidth() {
   let textWidth = text.width;
 
   return textWidth;
+}
+
+function onFilter(elFilterBtn) {
+  let filterTxt = elFilterBtn.innerText;
+  getImgsForDisplay(filterTxt);
+  renderImages(filterTxt);
 }

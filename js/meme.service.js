@@ -1,24 +1,24 @@
 'use strict';
 
 var gImgs = [
-  { id: 1, url: 'imgs/1.jpg', keywords: ['political'] },
-  { id: 2, url: 'imgs/2.jpg', keywords: ['political'] },
-  { id: 3, url: 'imgs/3.jpg', keywords: ['political'] },
-  { id: 4, url: 'imgs/4.jpg', keywords: ['political'] },
-  { id: 5, url: 'imgs/5.jpg', keywords: ['political'] },
-  { id: 6, url: 'imgs/6.jpg', keywords: ['political'] },
-  { id: 7, url: 'imgs/7.jpg', keywords: ['political'] },
-  { id: 8, url: 'imgs/8.jpg', keywords: ['political'] },
-  { id: 9, url: 'imgs/9.jpg', keywords: ['political'] },
-  { id: 10, url: 'imgs/10.jpg', keywords: ['political'] },
-  { id: 11, url: 'imgs/11.jpg', keywords: ['political'] },
-  { id: 12, url: 'imgs/12.jpg', keywords: ['political'] },
-  { id: 13, url: 'imgs/13.jpg', keywords: ['political'] },
-  { id: 14, url: 'imgs/14.jpg', keywords: ['political'] },
-  { id: 15, url: 'imgs/15.jpg', keywords: ['political'] },
-  { id: 16, url: 'imgs/16.jpg', keywords: ['political'] },
-  { id: 17, url: 'imgs/17.jpg', keywords: ['political'] },
-  { id: 18, url: 'imgs/18.jpg', keywords: ['political'] },
+  { id: 1, url: 'imgs/1.jpg', keywords: ['All', 'Political'] },
+  { id: 2, url: 'imgs/2.jpg', keywords: ['All', 'Cute'] },
+  { id: 3, url: 'imgs/3.jpg', keywords: ['All', 'Cute'] },
+  { id: 4, url: 'imgs/4.jpg', keywords: ['All', 'Cute'] },
+  { id: 5, url: 'imgs/5.jpg', keywords: ['All', 'Cute'] },
+  { id: 6, url: 'imgs/6.jpg', keywords: ['All', 'Smile'] },
+  { id: 7, url: 'imgs/7.jpg', keywords: ['All', 'Cute', 'Funny'] },
+  { id: 8, url: 'imgs/8.jpg', keywords: ['All', 'Smile', 'Movies'] },
+  { id: 9, url: 'imgs/9.jpg', keywords: ['All', 'Cute'] },
+  { id: 10, url: 'imgs/10.jpg', keywords: ['All', 'Smile'] },
+  { id: 11, url: 'imgs/11.jpg', keywords: ['All', 'Funny'] },
+  { id: 12, url: 'imgs/12.jpg', keywords: ['All', 'Movies'] },
+  { id: 13, url: 'imgs/13.jpg', keywords: ['All', 'Movies'] },
+  { id: 14, url: 'imgs/14.jpg', keywords: ['All', 'Movies'] },
+  { id: 15, url: 'imgs/15.jpg', keywords: ['All', 'Movies'] },
+  { id: 16, url: 'imgs/16.jpg', keywords: ['All', 'Smile', 'Movies'] },
+  { id: 17, url: 'imgs/17.jpg', keywords: ['All', 'Political'] },
+  { id: 18, url: 'imgs/18.jpg', keywords: ['All', 'Movies'] },
 ];
 
 var gMeme = {
@@ -142,4 +142,16 @@ function getTxt() {
 function moveText(posX, posY) {
   gMeme.lines[gMeme.selectedLineIdx].x = posX;
   gMeme.lines[gMeme.selectedLineIdx].y = posY;
+}
+
+function getImgsForDisplay(filter = 'All') {
+  var filteredImgs = [];
+  for (let i = 0; i < gImgs.length; i++) {
+    for (let j = 0; j < gImgs.length; j++) {
+      if (gImgs[i].keywords[j] === filter) {
+        filteredImgs.push(gImgs[i]);
+      }
+    }
+  }
+  return filteredImgs;
 }

@@ -294,6 +294,15 @@ body {
   font-size: 1.5rem;
 }
 
+.gallery-container .nav-filter-container li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery-container .nav-filter-container li:hover {
+  color: #383b42;
+}
+
 .gallery-container input {
   width: 33.5rem;
   border-radius: 29px;
