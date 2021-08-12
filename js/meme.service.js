@@ -132,3 +132,7 @@ function toggleStroke() {
   isStroke = !isStroke ? true : false;
   gMeme.lines[gMeme.selectedLineIdx].isStroke = isStroke;
 }
+
+function getTxt() {
+  return gMeme.lines[gMeme.selectedLineIdx].txt;
+}

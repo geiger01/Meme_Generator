@@ -89,6 +89,7 @@ function onAddLine() {
 
 function onChangeLine() {
   changeLine();
+  document.querySelector('.meme-text').value = getTxt();
   renderMeme();
 }
 
