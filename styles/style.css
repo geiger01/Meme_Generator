@@ -275,6 +275,11 @@ body {
   gap: 15px;
 }
 
+.nav-filter {
+  display: flex;
+  gap: 10px;
+}
+
 .gallery-container .nav-filter-container {
   display: flex;
   justify-content: space-around;
@@ -295,6 +300,21 @@ body {
   background-color: #22252c;
   border: none;
   outline: none;
+  padding-inline-start: 3rem;
+  font-size: 1.5rem;
+  color: rgb(226, 226, 226);
+  height: 3rem;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 7px;
+  width: 30px;
 }
 
 .gallery-container .gallery-nav button {
@@ -357,4 +377,55 @@ body {
 
 .hide {
   opacity: 0;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1250px) {
+  .nav-filter .nav-filter-container {
+    width: 24rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1104px) {
+  .main-content {
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 1033px) {
+  .main-content {
+    gap: 10px;
+  }
+  .gallery-container .gallery-nav input {
+    height: 3rem;
+    width: 31rem;
+  }
+
+  .gallery-container .gallery-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gallery-container .photos {
+    justify-content: center;
+  }
+
+  .nav-filter {
+    display: flex;
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 988px) {
+  .main-content .meme-tools {
+    width: 28.812rem;
+    height: 31.125rem;
+  }
+
+  .main-content .meme {
+    width: 28.812rem;
+    height: 31.125rem;
+  }
 }
