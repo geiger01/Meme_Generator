@@ -126,6 +126,14 @@ body {
   padding: 1.5rem;
 }
 
+.main-content .meme-tools img {
+  transition: transform 0.3s;
+}
+
+.main-content .meme-tools img:hover {
+  transform: rotate(15deg);
+}
+
 .main-content .meme-tools .meme-text {
   font-family: Poppins-Medium, sans-serif;
   padding-inline-start: 1.8rem;
@@ -283,6 +291,12 @@ body {
   height: 10.8125rem;
   object-fit: cover;
   box-shadow: 1px 7px 12px 4px rgb(0 0 0 / 30%);
+
+  transition: box-shadow 0.3s;
+}
+
+.gallery-container .img-item:hover {
+  box-shadow: 1px 7px 12px 12px rgb(0 0 0 / 40%);
 }
 
 .hide {
