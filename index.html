@@ -102,6 +102,26 @@
                   type="color"
                 />
               </div>
+
+              <div class="stickers-container"></div>
+              <div class="download-container">
+                <div class="share-container">
+                  <img
+                    onclick=" uploadImg()"
+                    class="share"
+                    src="/icons/share.png"
+                    alt="share"
+                  />
+                </div>
+
+                <a onclick="downloadCanvas(this)" href="#" download="myphoto">
+                  <img
+                    class="download"
+                    src="/icons/donwload.png"
+                    alt="download"
+                  />
+                </a>
+              </div>
             </div>
             <div class="stickers"></div>
             <div class="uploads"></div>
@@ -109,6 +129,7 @@
         </div>
       </main>
     </section>
+    <script src="js/upload.service.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/main.js"></script>
   </body>

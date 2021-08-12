@@ -193,6 +193,22 @@ body {
   gap: 2.187rem;
 }
 
+.main-content .meme-tools .download-container {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.meme-tools .download-container img {
+  cursor: pointer;
+}
+
+.meme-tools .download-container img:hover {
+  transform: rotate(5deg);
+}
+
 .main-content .color-btn {
   cursor: pointer;
   position: relative;

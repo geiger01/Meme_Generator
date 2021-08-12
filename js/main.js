@@ -116,3 +116,9 @@ function onToggleStroke() {
   toggleStroke();
   renderMeme();
 }
+
+function downloadCanvas(elLink) {
+  const data = gElCanvas.toDataURL('image/jpg');
+  elLink.href = data;
+  elLink.download = 'Picture';
+}
