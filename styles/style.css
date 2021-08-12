@@ -435,7 +435,11 @@ body {
 
   .main-header {
     border-radius: 0;
-    padding-inline-start: 1rem;
+  }
+
+  .main-layout {
+    margin: 0 auto;
+    margin-bottom: 10px;
   }
 }
 
@@ -498,6 +502,10 @@ body {
 
   .meme-tools .download-container img {
     width: 10rem;
+  }
+
+  .main-header {
+    padding-inline-start: 5rem;
   }
 }
 
