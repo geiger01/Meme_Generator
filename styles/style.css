@@ -201,6 +201,17 @@ body {
   gap: 1rem;
 }
 
+.share-link {
+  text-decoration: none;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.share-link:hover {
+  color: rgb(72, 190, 219);
+}
+
 .meme-tools .download-container img {
   cursor: pointer;
 }

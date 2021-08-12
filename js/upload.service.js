@@ -8,8 +8,14 @@ function uploadImg() {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
 
     document.querySelector('.share-container').innerHTML = `
-        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-           Share on Facebook  
+        <a class="share-link" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+           Click on Facebook  
+           <img
+                    onclick=" uploadImg()"
+                    class="share"
+                    src="/icons/share.png"
+                    alt="share"
+                  />
         </a>`;
   }
   doUploadImg(imgDataUrl, onSuccess);
