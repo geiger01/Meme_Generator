@@ -38,6 +38,9 @@ var gMeme = {
   ],
 };
 
+var gUserMemes = [];
+loadUserMemes();
+
 function getMeme() {
   return gMeme;
 }
@@ -156,4 +159,23 @@ function getImgsForDisplay(filter = 'All') {
     }
   }
   return filteredImgs;
+}
+
+function saveUserMeme(memeUrl) {
+  const meme = { meme: memeUrl };
+  gUserMemes.push(meme);
+  saveToStorage('userMemes', gUserMemes);
+  console.log(gUserMemes);
+}
+
+function loadUserMemes() {
+  var memes = loadFromStorage('userMemes', gUserMemes);
+
+  if (!memes || memes.length === 0) {
+    memes = [];
+  }
+  gUserMemes = memes;
+  saveToStorage('userMemes', gUserMemes);
+
+  return gUserMemes;
 }

@@ -172,6 +172,24 @@ body {
   background-color: transparent;
 }
 
+.main-content .meme-tools .save-btn {
+  color: white;
+  font-family: Poppins-light, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  width: 3.5rem;
+  height: 3rem;
+  background-color: rgb(231, 126, 235);
+  border-radius: 10px;
+  box-shadow: 1px 5px 0 #d752db, inset 0 5px 0 #e9aad9;
+
+  transition: 0.3s;
+}
+
+.main-content .meme-tools .save-btn:hover {
+  transform: rotate(15deg);
+}
+
 .main-content .positioning-tools {
   padding: 16px;
   display: flex;
@@ -525,6 +543,11 @@ body {
   .main-header .links {
     width: 18.3rem;
     justify-content: space-between;
+  }
+
+  .main-content .meme-tools .save-btn {
+    height: 2.7rem;
+    width: 3rem;
   }
 }
 

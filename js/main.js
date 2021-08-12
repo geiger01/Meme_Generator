@@ -201,3 +201,25 @@ function onSearch(txt) {
   getImgsForDisplay(txt);
   renderImages(txt);
 }
+
+function onSaveMeme() {
+  const memeUrl = gElCanvas.toDataURL();
+  saveUserMeme(memeUrl);
+}
+
+function renderUserMemes() {
+  const userMemes = loadUserMemes();
+
+  let strHTML = '';
+  userMemes.map((meme) => {
+    return (strHTML += `
+        <img
+            class="img-item"
+            src="${userMemes.meme}"
+            alt=""
+          />
+    `);
+  });
+
+  document.querySelector('.photos').innerHTML = strHTML;
+}

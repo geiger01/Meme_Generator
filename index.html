@@ -14,7 +14,7 @@
           <li class="logo"><a href="">MeMaker</a></li>
           <div class="links">
             <li><a href="">Gallery</a></li>
-            <li><a href="">About</a></li>
+            <li onclick="renderUserMemes()"><a href="">Saved</a></li>
           </div>
         </ul>
       </nav>
@@ -71,6 +71,7 @@
               <button onclick="onDeleteLine()">
                 <img src="icons/trash.png" alt="" />
               </button>
+              <button onclick="onSaveMeme()" class="save-btn">Save</button>
             </div>
             <div class="positioning-tools">
               <div class="upper-tools">
@@ -139,6 +140,7 @@
         </div>
       </main>
     </section>
+    <script src="js/storage.service.js"></script>
     <script src="js/upload.service.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/main.js"></script>
