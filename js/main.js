@@ -133,9 +133,10 @@ function addMouseListeners() {
   gElCanvas.addEventListener('mousedown', onMouseDown);
   gElCanvas.addEventListener('mouseup', onMouseUp);
 }
+
 function addTouchListeners() {
   gElCanvas.addEventListener('touchmove', onTouchMove);
-  gElCanvas.addEventListener('touchstart', ontouchDown);
+  gElCanvas.addEventListener('touchstart', onTouchDown);
   gElCanvas.addEventListener('touchend', onTouchUp);
 }
 
@@ -145,17 +146,20 @@ function onMouseDown(ev) {
 
 function onMouseUp(ev) {
   gIsMouseDown = false;
+  document.querySelector('.meme').style.cursor = 'default';
 }
 
 function onMouseMove(ev) {
   if (gIsMouseDown) {
-    let posX = ev.offsetX;
+    document.querySelector('.meme').style.cursor = 'grabbing';
+    let posX = ev.offsetX - getTextWidth() / 2;
     let posY = ev.offsetY;
     moveText(posX, posY);
     renderMeme();
   } else return;
 }
-function ontouchDown(ev) {
+
+function onTouchDown(ev) {
   ev.preventDefault();
   gIsTouchDown = true;
 }
@@ -171,9 +175,18 @@ function onTouchMove(ev) {
   var offsetX = ((ev.touches[0].clientX - x) / width) * ev.target.offsetWidth;
   var offsetY = ((ev.touches[0].clientY - y) / height) * ev.target.offsetHeight;
   if (gIsTouchDown) {
-    let posX = offsetX;
+    let posX = offsetX - getTextWidth() / 2;
     let posY = offsetY;
     moveText(posX, posY);
     renderMeme();
   } else return;
+}
+
+//measures text width
+function getTextWidth() {
+  const meme = getMeme();
+  const text = gCtx.measureText(meme.lines[meme.selectedLineIdx].txt);
+  let textWidth = text.width;
+
+  return textWidth;
 }
