@@ -165,7 +165,6 @@ function saveUserMeme(memeUrl) {
   const meme = { meme: memeUrl };
   gUserMemes.push(meme);
   saveToStorage('userMemes', gUserMemes);
-  console.log(gUserMemes);
 }
 
 function loadUserMemes() {

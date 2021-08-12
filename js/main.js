@@ -203,7 +203,7 @@ function onSearch(txt) {
 }
 
 function onSaveMeme() {
-  const memeUrl = gElCanvas.toDataURL();
+  const memeUrl = gElCanvas.toDataURL('image/png', 'image/jpeg');
   saveUserMeme(memeUrl);
 }
 
@@ -215,7 +215,7 @@ function renderUserMemes() {
     return (strHTML += `
         <img
             class="img-item"
-            src="${userMemes.meme}"
+            src="${meme.meme}"
             alt=""
           />
     `);
