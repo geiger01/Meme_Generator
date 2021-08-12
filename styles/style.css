@@ -507,9 +507,21 @@ body {
   .main-header {
     padding-inline-start: 5rem;
   }
+
+  .main-nav li {
+    margin-left: 0;
+  }
+
+  .main-header .links {
+    width: 18.3rem;
+    justify-content: space-between;
+  }
 }
 
 @media screen and (max-width: 570px) {
+  .main-header .links {
+    width: 15rem;
+  }
   .main-layout {
     width: 530px;
   }
