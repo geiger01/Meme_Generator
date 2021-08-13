@@ -218,6 +218,7 @@ function renderUserMemes() {
     return (strHTML += `
     <div class="saved-meme-container">
     <img
+    onclick ="onEditMeme('${meme.meme}')"
     class="img-item"
     src="${meme.meme}"
     alt="meme"
@@ -228,6 +229,15 @@ function renderUserMemes() {
   });
 
   document.querySelector('.photos').innerHTML = strHTML;
+}
+
+function onEditMeme(imgUrl) {
+  document.querySelector('.meme-gallery').hidden = true;
+  document.querySelector('.meme-section').classList.remove('hide');
+
+  const imgID = getImgs().length + 1;
+  addImg(imgUrl, imgID);
+  renderMeme();
 }
 
 function onDeleteMeme(id) {
