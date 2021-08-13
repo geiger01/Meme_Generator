@@ -216,15 +216,23 @@ function renderUserMemes() {
   let strHTML = '';
   userMemes.map((meme) => {
     return (strHTML += `
-        <img
-            class="img-item"
-            src="${meme.meme}"
-            alt=""
-          />
+    <div class="saved-meme-container">
+    <img
+    class="img-item"
+    src="${meme.meme}"
+    alt="meme"
+    />
+    <a onclick="onDeleteMeme(${meme.id})" class="delete-meme">Delete</a>
+    </div>
     `);
   });
 
   document.querySelector('.photos').innerHTML = strHTML;
+}
+
+function onDeleteMeme(id) {
+  deleteSavedMeme(id);
+  renderUserMemes();
 }
 
 function copyToClipBoard() {

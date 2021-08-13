@@ -371,7 +371,6 @@ body {
 .upload {
   display: none;
 }
-
 /* Photos */
 
 .gallery-container .photos {
@@ -420,6 +419,23 @@ body {
   opacity: 0;
 }
 
+/* Saved Memes */
+.saved-meme-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saved-meme-container a {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: rgb(192, 95, 114);
+  transition: color 0.3s;
+}
+
+.saved-meme-container a:hover {
+  color: #f1c344;
+}
 /* PopUp */
 
 .copy-container {

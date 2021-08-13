@@ -162,7 +162,7 @@ function getImgsForDisplay(filter = 'All') {
 }
 
 function saveUserMeme(memeUrl) {
-  const meme = { meme: memeUrl };
+  const meme = { id: Math.random(), meme: memeUrl };
   gUserMemes.push(meme);
   saveToStorage('userMemes', gUserMemes);
 }
@@ -187,4 +187,13 @@ function addImg(img, id) {
 
 function getImgUrl() {
   return gImgs[gMeme.selectedImgId - 1].url;
+}
+
+function deleteSavedMeme(id) {
+  const memeIdx = gUserMemes.findIndex((meme) => {
+    return meme.id === id;
+  });
+
+  gUserMemes.splice(memeIdx, 1);
+  saveToStorage('userMemes', gUserMemes);
 }
