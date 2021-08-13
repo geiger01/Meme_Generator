@@ -28,7 +28,7 @@ function renderMeme(txt) {
   const memeTxt = meme.lines[meme.selectedLineIdx].txt;
 
   var img = new Image();
-  img.src = `imgs/${memeId}.jpg`;
+  img.src = getImgUrl();
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     renderTxt(txt);
@@ -233,4 +233,28 @@ function copyToClipBoard() {
   setTimeout(() => {
     document.querySelector('.copy-container').style.opacity = 0;
   }, 1000);
+}
+
+function onImgInput(ev) {
+  loadImageFromInput(ev, renderImg);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+  var reader = new FileReader();
+
+  reader.onload = function (event) {
+    var img = new Image();
+    img.onload = onImageReady.bind(null, img);
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(ev.target.files[0]);
+}
+
+function renderImg(img) {
+  document.querySelector('.meme-gallery').hidden = true;
+  document.querySelector('.meme-section').classList.remove('hide');
+
+  const imgID = getImgs().length + 1;
+  addImg(img.src, imgID);
+  gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }

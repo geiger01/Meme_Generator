@@ -178,3 +178,13 @@ function loadUserMemes() {
 
   return gUserMemes;
 }
+
+function addImg(img, id) {
+  const newImg = { id, url: img };
+  gMeme.selectedImgId = id;
+  gImgs.push(newImg);
+}
+
+function getImgUrl() {
+  return gImgs[gMeme.selectedImgId - 1].url;
+}

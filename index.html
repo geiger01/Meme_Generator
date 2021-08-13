@@ -41,7 +41,16 @@
               <li onclick="onFilter(this)">Movies</li>
               <li onclick="onFilter(this)">Smile</li>
             </ul>
-            <button>More</button>
+            <label for="upload">
+              <!-- <button class="upload-btn">Upload</button> -->
+              <div class="upload-btn">Upload</div>
+            </label>
+            <input
+              onchange="onImgInput(event)"
+              id="upload"
+              class="upload"
+              type="file"
+            />
           </div>
         </div>
         <div class="photos"></div>
