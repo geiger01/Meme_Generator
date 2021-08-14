@@ -254,11 +254,12 @@ function renderUserMemes() {
     `);
   });
 
+  document.querySelector('.meme-section').classList.add('hide');
+  document.querySelector('.meme-gallery').hidden = false;
   document.querySelector('.photos').innerHTML = strHTML;
 }
 
 function onEditMeme(imgUrl) {
-  document.querySelector('.meme-gallery').hidden = true;
   document.querySelector('.meme-section').classList.remove('hide');
 
   const imgID = getImgs().length + 1;
