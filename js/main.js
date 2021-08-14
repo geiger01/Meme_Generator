@@ -149,7 +149,9 @@ function onMouseDown(ev) {
 
   const idx = getSelectedTextLine(ev.offsetX, ev.offsetY);
   if (idx !== -1) {
+    const txt = meme.lines[idx].txt;
     meme.selectedLineIdx = idx;
+    document.querySelector('.meme-text').value = txt;
     renderMeme();
   }
 }
@@ -182,6 +184,9 @@ function onTouchDown(ev) {
 
   const idx = getSelectedTextLine(offsetX, offsetY);
   if (idx !== -1) {
+    const txt = meme.lines[idx].txt;
+    document.querySelector('.meme-text').value = txt;
+
     meme.selectedLineIdx = idx;
     renderMeme();
   }
