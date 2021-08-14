@@ -152,8 +152,8 @@ body {
   margin-top: 2rem;
   border-radius: 33px;
   box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #e7e7e7;
-  /* width: 22rem; */
 }
+
 .meme-tools .stickers-container .sticker {
   font-size: 2.7rem;
   cursor: pointer;
