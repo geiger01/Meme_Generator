@@ -276,3 +276,7 @@ function renderImg(img) {
   addImg(img.src, imgID);
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
+
+function onStickerClick(sticker) {
+  renderMeme(sticker);
+}

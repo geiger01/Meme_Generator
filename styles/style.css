@@ -144,6 +144,21 @@ body {
   transform: rotate(15deg);
 }
 
+.meme-tools .stickers-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(240, 232, 232);
+  margin-top: 2rem;
+  border-radius: 33px;
+  box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #e7e7e7;
+  /* width: 22rem; */
+}
+.meme-tools .stickers-container .sticker {
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+
 .main-content .meme-tools .meme-text {
   font-family: Poppins-Medium, sans-serif;
   padding-inline-start: 1.8rem;
@@ -556,7 +571,7 @@ body {
   }
   .main-content .meme-tools {
     width: 30rem;
-    height: 28rem;
+    height: 30.7rem;
     gap: 10px;
     /* overflow: auto; */
   }
