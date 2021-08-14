@@ -144,7 +144,14 @@ function addTouchListeners() {
 }
 
 function onMouseDown(ev) {
+  const meme = getMeme();
   gIsMouseDown = true;
+
+  const idx = getSelectedTextLine(ev.offsetX, ev.offsetY);
+  if (idx !== -1) {
+    meme.selectedLineIdx = idx;
+    renderMeme();
+  }
 }
 
 function onMouseUp(ev) {
@@ -155,7 +162,7 @@ function onMouseUp(ev) {
 function onMouseMove(ev) {
   if (gIsMouseDown) {
     document.querySelector('.meme').style.cursor = 'grabbing';
-    let posX = ev.offsetX - getTextWidth() / 2;
+    let posX = ev.offsetX - getTextWidth().textWidth / 2;
     let posY = ev.offsetY;
     moveText(posX, posY);
     renderMeme();
@@ -165,6 +172,19 @@ function onMouseMove(ev) {
 function onTouchDown(ev) {
   ev.preventDefault();
   gIsTouchDown = true;
+
+  const meme = getMeme();
+  gIsMouseDown = true;
+
+  var { x, y, width, height } = ev.target.getBoundingClientRect();
+  var offsetX = ((ev.touches[0].clientX - x) / width) * ev.target.offsetWidth;
+  var offsetY = ((ev.touches[0].clientY - y) / height) * ev.target.offsetHeight;
+
+  const idx = getSelectedTextLine(offsetX, offsetY);
+  if (idx !== -1) {
+    meme.selectedLineIdx = idx;
+    renderMeme();
+  }
 }
 
 function onTouchUp(ev) {
@@ -178,8 +198,9 @@ function onTouchMove(ev) {
   var offsetX = ((ev.touches[0].clientX - x) / width) * ev.target.offsetWidth;
   var offsetY = ((ev.touches[0].clientY - y) / height) * ev.target.offsetHeight;
   if (gIsTouchDown) {
-    let posX = offsetX - getTextWidth() / 2;
+    let posX = offsetX - getTextWidth().textWidth / 2;
     let posY = offsetY;
+
     moveText(posX, posY);
     renderMeme();
   } else return;
@@ -190,8 +211,8 @@ function getTextWidth() {
   const meme = getMeme();
   const text = gCtx.measureText(meme.lines[meme.selectedLineIdx].txt);
   let textWidth = text.width;
-
-  return textWidth;
+  let textHeight = meme.lines[meme.selectedLineIdx].size;
+  return { textWidth, textHeight };
 }
 
 function onFilter(elFilterBtn) {

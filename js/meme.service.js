@@ -197,3 +197,17 @@ function deleteSavedMeme(id) {
   gUserMemes.splice(memeIdx, 1);
   saveToStorage('userMemes', gUserMemes);
 }
+
+function getSelectedTextLine(x, y) {
+  const idx = gMeme.lines.findIndex((line) => {
+    let txtWidth = gCtx.measureText(line.txt).width;
+    let txtHeight = line.size;
+    return (
+      x >= line.x &&
+      x <= txtWidth + line.x &&
+      y <= line.y &&
+      y >= line.y - txtHeight
+    );
+  });
+  return idx;
+}
