@@ -261,6 +261,7 @@ function renderUserMemes() {
 
 function onEditMeme(imgUrl) {
   document.querySelector('.meme-section').classList.remove('hide');
+  document.querySelector('.meme-gallery').hidden = true;
 
   const imgID = getImgs().length + 1;
   addImg(imgUrl, imgID);
